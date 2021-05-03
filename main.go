@@ -18,6 +18,11 @@ func main() {
 	// Loop through each argument
 	for i := 0; i < len(args); i+=1 {
 		arg := args[i]
+		_, err := strconv.Atoi(arg)
+		if err != nil {
+			fmt.Println(arg + " is not a valid integer.")
+			continue
+		}
 		str := ""
 		// Loop through each digit
 		for j := 0; j < len(arg); j+=1 {
@@ -29,5 +34,7 @@ func main() {
 		// Print out the number
 		output = append(output, str)
 	}
-	fmt.Println(strings.Join(output, ","))
+	if output != nil {
+		fmt.Println(strings.Join(output, ","))
+	}
 }
