@@ -18,14 +18,21 @@ func main() {
 	// Loop through each argument
 	for i := 0; i < len(args); i+=1 {
 		arg := args[i]
+		// If the argument is not a number => Throw error and continue
 		_, err := strconv.Atoi(arg)
 		if err != nil {
 			fmt.Println(arg + " is not a valid integer.")
 			continue
 		}
 		str := ""
+		// If argument is a negative integer, add "Minus" in front
+		start := 0
+		if string(arg[0]) == "-" {
+			start = 1
+			str += "Minus"
+		}
 		// Loop through each digit
-		for j := 0; j < len(arg); j+=1 {
+		for j := start; j < len(arg); j+=1 {
 			// Convert to string
 			number, _ := strconv.Atoi(string(arg[j]))
 			// Add each phonetic of a digit
