@@ -42,6 +42,6 @@ func main() {
 		output = append(output, str)
 	}
 	if output != nil {
-		fmt.Println(strings.Join(output, ", "))
+		fmt.Println(strings.Join(output, ","))
 	}
 }
